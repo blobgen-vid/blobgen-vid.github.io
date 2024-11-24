@@ -1,0 +1,768 @@
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Welcome to BlobGEN-Vid!</title>
+    <link href="./style.css" rel="stylesheet">
+    <!-- <script type="text/javascript" src="./images/jquery.mlens-1.0.min.js"></script>
+    <script type="text/javascript" src="./images/jquery.js"></script> -->
+    
+    <style>
+        p.serif {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        p.sansserif {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .thick-line{
+           width:100%;
+           height: 3px;
+           background-color: black;
+        }
+        .thick-line1{
+            width:100%;
+            height: 1px;
+            background-color: black;
+         }
+        .height-line{
+            width:100%;
+            height: 60px;
+            background-color:white;
+         }
+    </style>
+
+    <style>
+        .box16 {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            width:16%;
+       }
+        .box25 {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            width:24.5%;
+       }
+        .box33 {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            width:33%;
+       }
+
+       .box50 {
+        display:inline-block;
+        vertical-align: middle;
+        text-align: center;
+        width:49%;
+       }
+
+       .box100 {
+        display:inline-block;
+        vertical-align: middle;
+        text-align: center;
+        width:99%;
+       }
+    </style>
+
+</head>
+
+<body>
+    <div class="content">
+        <div id="" >
+            <div class="height-line"></div>
+            <div class="thick-line"></div>
+            <div class="box100", style="text-align:center;"> 
+                <span><h1><strong>BlobGEN-Vid: Compositional Text-to-Video Generation with Blob Video Representations </strong></h1></span>
+                <!-- <span><h1><strong>Blob-Grounded Video Generation</strong></h1></span> -->
+            </div>
+             <div class="thick-line1"></div><br><br>
+        </div>
+        
+        <div id="">
+            <div class="box100", style="display:inline-block; font-size: 1.2em; text-align: center;">
+            <p style="margin-left: 1cm; margin-right:1.0cm;font-weight:bold; text-align: center; font-size: 1.2em;">
+                Contents in this webpage:
+            </p>
+            <ul style="margin-left: 2cm; margin-right: 2cm; text-align: center; font-size: 1.2em; line-height: 1.6;">
+                <li>
+                    <a href="#FigA">
+                        Figure A: Comparisons against baselines in layout-to-video generation on YTVIS
+                    </a>
+                </li>
+                <li><a href="#FigB">Figure B: Comparisons against baselines in text-to-video generation on T2V-CompBench </a></li>
+                <li><a href="#FigC">Figure C: Comparisons against baselines in text-to-video generation on TC-Bench</a></li>
+                <li><a href="#FigD">Figure D: Comparisons against baselines in multi-view image generation on ScanNet++</a></li>
+            </ul>
+        
+            </div>
+        </div>  
+    </div>
+
+    <div class="content">
+        <!-- abstract -->
+        <div id="">
+           <div class="box100", style="line-height:20px;text-align:center;">
+               <span style="font-size: 1.2em;text-align:center;">&nbsp;</span>
+           </div>
+       </div>
+       <div id="">
+           <div class="box100", style="line-height:20px;text-align:center;">
+               <span><h3 id="FigA"><strong>Figure A: Layout-to-Video Generation, YoutubeVIS-2021 <br /> 
+           </div>
+       </div>
+       <div id="">
+            <div class="box25", style="text-align:center;">
+                <div style="line-height:40px; border: 1px solid; text-align:center;">LVD</div>
+            </div>
+            <div class="box25", style="text-align:center;">
+                <div style="line-height:40px; border: 1px solid; text-align:center;">VideoTetris</div>
+            </div>
+            <div class="box25", style="text-align:center;">
+                <div style="line-height:40px; border: 1px solid; text-align:center;">TrackDiffusion</div>
+            </div>
+            <div class="box25", style="text-align:center;">
+                <div style="line-height:40px; border: 1px solid; text-align:center;">BlobGEN-Vid (Ours)</div>
+            </div>
+        </div>
+        <div id="">
+            <div class="box100", style="line-height:20px;text-align:center;">
+                <span><h3><i>The video shows a tiger lying on the ground, looking directly at the camera. It appears to be in a zoo enclosure, and there are trees and a building in the background. The tiger is seen licking its paw, and the camera zooms in on its face.                </i></h3></span>
+            </div>
+        </div>
+        <div id="">
+            <div class="box25", style="text-align:center;">
+                <video class="status3-pic" src="./videos/ytvis/LLM-groundedVideoDiffusion_0d62fa582a.mp4" style="width:66%;" controls autoplay loop muted></video>
+            </div>
+            <div class="box25", style="text-align:center;">
+                <video class="status3-pic" src="./videos/ytvis/VideoTetris_0d62fa582a.mp4" style="width:66%;" controls autoplay loop muted></video>
+            </div>
+            <div class="box25", style="text-align:center;">
+                <video class="status3-pic" src="./videos/ytvis/TrackDiffusion_0d62fa582a.mp4" style="width:100%;" controls autoplay loop muted></video>
+            </div>
+            <div class="box25", style="text-align:center;">
+                <video class="status3-pic" src="./videos/ytvis/blobgen-vid_0d62fa582a.mp4" style="width:100%;" controls autoplay loop muted></video>
+            </div>
+        </div>
+
+        <div id="">
+            <div class="box100", style="line-height:20px;text-align:center;">
+                <span><h3><i>The video shows a close-up of a zebra's face, with its eyes and nose clearly visible. The zebra appears to be in a natural habitat, possibly a savannah or grassland, with trees and a blue sky in the background. The zebra's stripes are distinct and its eyes are open, giving a clear view of its facial features.</i></h3></span>
+            </div>
+        </div>
+        <div id="">
+            <div class="box25", style="text-align:center;">
+                <video class="status3-pic" src="./videos/ytvis/LLM-groundedVideoDiffusion_02caec8ac0.mp4" style="width:66%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box25", style="text-align:center;">
+                <video class="status3-pic" src="./videos/ytvis/VideoTetris_02caec8ac0.mp4" style="width:66%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box25", style="text-align:center;">
+                <video class="status3-pic" src="./videos/ytvis/TrackDiffusion_02caec8ac0.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box25", style="text-align:center;">
+                <video class="status3-pic" src="./videos/ytvis/blobgen-vid_02caec8ac0.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+        </div>
+
+        <div id="">
+            <div class="box100", style="line-height:20px;text-align:center;">
+                <span><h3><i>The video shows a group of colorful birds, including parrots and parakeets, perched on a wooden stand and eating from a tray of seeds. One bird is yellow, another is green, and the third is blue. They are in a cage, and the camera zooms in on the yellow bird as it eats.
+                                    </i></h3></span>
+            </div>
+        </div>
+        <div id="">
+            <div class="box25", style="text-align:center;">
+                <video class="status3-pic" src="./videos/ytvis/LLM-groundedVideoDiffusion_12d307c850.mp4" style="width:66%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box25", style="text-align:center;">
+                <video class="status3-pic" src="./videos/ytvis/VideoTetris_12d307c850.mp4" style="width:66%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box25", style="text-align:center;">
+                <video class="status3-pic" src="./videos/ytvis/TrackDiffusion_12d307c850.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box25", style="text-align:center;">
+                <video class="status3-pic" src="./videos/ytvis/blobgen-vid_12d307c850.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+        </div>
+
+        <div id="">
+            <div class="box100", style="line-height:20px;text-align:center;">
+                <span><h3><i>The video shows a snowboarder performing a trick on a ramp, launching off a rail, and landing on the snow. The snowboarder is wearing a white jacket and black pants, and the ramp has a red roof. The scene is set against a backdrop of a snowy mountain with clouds in the sky.                </i></h3></span>
+            </div>
+        </div>
+        <div id="">
+            <div class="box25", style="text-align:center;">
+                <video class="status3-pic" src="./videos/ytvis/LLM-groundedVideoDiffusion_212736f1f3.mp4" style="width:66%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box25", style="text-align:center;">
+                <video class="status3-pic" src="./videos/ytvis/VideoTetris_212736f1f3.mp4" style="width:66%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box25", style="text-align:center;">
+                <video class="status3-pic" src="./videos/ytvis/TrackDiffusion_212736f1f3.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box25", style="text-align:center;">
+                <video class="status3-pic" src="./videos/ytvis/blobgen-vid_212736f1f3.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+        </div>
+
+        <div id="">
+            <div class="box100", style="line-height:20px;text-align:center;">
+                <span><h3><i>The video shows two tigers walking in a zoo enclosure. One tiger is walking towards the camera while the other is walking away. They are surrounded by rocks and trees, and the ground is covered in dirt.                </i></h3></span>
+            </div>
+        </div>
+        <div id="">
+            <div class="box25", style="text-align:center;">
+                <video class="status3-pic" src="./videos/ytvis/LLM-groundedVideoDiffusion_25ea8feecf.mp4" style="width:66%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box25", style="text-align:center;">
+                <video class="status3-pic" src="./videos/ytvis/VideoTetris_25ea8feecf.mp4" style="width:66%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box25", style="text-align:center;">
+                <video class="status3-pic" src="./videos/ytvis/TrackDiffusion_25ea8feecf.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box25", style="text-align:center;">
+                <video class="status3-pic" src="./videos/ytvis/blobgen-vid_25ea8feecf.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="content">
+        <!-- abstract -->
+        <div id="">
+           <div class="box100", style="line-height:20px;text-align:center;">
+               <span style="font-size: 1.2em;text-align:center;">&nbsp;</span>
+           </div>
+       </div>
+       <div id="">
+           <div class="box100", style="line-height:20px;text-align:center;">
+               <span><h3 id="FigB"><strong>Figure B: Text-to-Video Generation, T2V-CompBench. <br /> 
+           </div>
+       </div>
+
+       <div id="">
+            <div class="box16", style="text-align:center;">
+                <div style="line-height:40px; border: 1px solid; text-align:center;">Open-Sora</div>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <div style="line-height:40px; border: 1px solid; text-align:center;">Pika</div>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <div style="line-height:40px; border: 1px solid; text-align:center;">Dream Machine</div>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <div style="line-height:40px; border: 1px solid; text-align:center;">Kling</div>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <div style="line-height:40px; border: 1px solid; text-align:center;">Gen-3</div>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <div style="line-height:40px; border: 1px solid; text-align:center;">BlobGEN-Vid (Ours)</div>
+            </div>
+        </div>
+        
+
+        <div id="">
+            <div class="box100", style="line-height:20px;text-align:center;">
+                <span><h3><i>Spatial Relationships: A cat sitting on the left of a fireplace.                </i></h3></span>
+            </div>
+        </div>
+        <div id="">
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/spatial_relationships/opensora_v12_0002.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/spatial_relationships/pika_0002.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/spatial_relationships/dream_machine_0002.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/spatial_relationships/kling_0002.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/spatial_relationships/gen3_0002.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/spatial_relationships/blobgen-vid_0002.mp4" style="width:92%;" controls autoplay loop muted> </video>
+            </div>
+        </div>
+
+        <div id="">
+            <div class="box100", style="line-height:20px;text-align:center;">
+                <span><h3><i>Spatial Relationships: A sheep grazing on the left of a surfboard on a sandy beach                </i></h3></span>
+            </div>
+        </div>
+        <div id="">
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/spatial_relationships/opensora_v12_0010.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/spatial_relationships/pika_0010.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/spatial_relationships/dream_machine_0010.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/spatial_relationships/kling_0010.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/spatial_relationships/gen3_0010.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/spatial_relationships/blobgen-vid_0010.mp4" style="width:92%;" controls autoplay loop muted> </video>
+            </div>
+        </div>
+
+
+        <div id="">
+            <div class="box100", style="line-height:20px;text-align:center;">
+                <span><h3><i>Motion Binding: A robot walking from right to left across the moon with a car driving left to right in the background                </i></h3></span>
+            </div>
+        </div>
+        <div id="">
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/motion_binding/opensora_v12_0071.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/motion_binding/pika_0071.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/motion_binding/dream_machine_0071.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/motion_binding/kling_0071.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/motion_binding/gen3_0071.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/motion_binding/blobgen-vid_0071.mp4" style="width:92%;" controls autoplay loop muted> </video>
+            </div>
+        </div>
+
+        <div id="">
+            <div class="box100", style="line-height:20px;text-align:center;">
+                <span><h3><i>Motion Binding: A toy car drives from left to right, passing miniature buildings and trees
+                </i></h3></span>
+            </div>
+        </div>
+        <div id="">
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/motion_binding/opensora_v12_0085.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/motion_binding/pika_0085.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/motion_binding/dream_machine_0085.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/motion_binding/kling_0085.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/motion_binding/gen3_0085.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/motion_binding/blobgen-vid_0085.mp4" style="width:92%;" controls autoplay loop muted> </video>
+            </div>
+        </div>
+
+        <div id="">
+            <div class="box100", style="line-height:20px;text-align:center;">
+                <span><h3><i>Dynamic Attribute Binding: A timelapse of a piece of bread initially fresh, then growing moldy.
+                </i></h3></span>
+            </div>
+        </div>
+        <div id="">
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/dynamic_attribute_binding/opensora_v12_0011.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/dynamic_attribute_binding/pika_0011.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/dynamic_attribute_binding/dream_machine_0011.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/dynamic_attribute_binding/kling_0011.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/dynamic_attribute_binding/gen3_0011.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/dynamic_attribute_binding/blobgen-vid_0011.mp4" style="width:92%;" controls autoplay loop muted> </video>
+            </div>
+        </div>
+
+        <div id="">
+            <div class="box100", style="line-height:20px;text-align:center;">
+                <span><h3><i>Dynamic Attribute Binding: Clear ice cube melts into shapeless water
+                </i></h3></span>
+            </div>
+        </div>
+        <div id="">
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/dynamic_attribute_binding/opensora_v12_0081.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/dynamic_attribute_binding/pika_0081.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/dynamic_attribute_binding/dream_machine_0081.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/dynamic_attribute_binding/kling_0081.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/dynamic_attribute_binding/gen3_0081.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <video class="status3-pic" src="./videos/t2v-compbench/dynamic_attribute_binding/blobgen-vid_0081.mp4" style="width:92%;" controls autoplay loop muted> </video>
+            </div>
+        </div>
+
+    </div>
+
+
+    
+    <div class="content">
+        <div id="">
+            <div class="box100", style="line-height:20px;text-align:center;">
+                <span style="font-size: 1.2em;text-align:center;">&nbsp;</span>
+            </div>
+        </div>
+        <div id="">
+            <div class="box100", style="line-height:20px;text-align:center;">
+                <span><h3 id="FigC"><strong>Figure C. Text-to-Video Generation, TC-Bench <br /> 
+            </div>
+        </div>
+
+        <div id="">
+            <div class="box16", style="text-align:center;">
+                <div style="line-height:40px; border: 1px solid; text-align:center;">CogVideoX-5B</div>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <div style="line-height:40px; border: 1px solid; text-align:center;">Pika</div>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <div style="line-height:40px; border: 1px solid; text-align:center;">Dream Machine</div>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <div style="line-height:40px; border: 1px solid; text-align:center;">Kling</div>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <div style="line-height:40px; border: 1px solid; text-align:center;">Gen-3</div>
+            </div>
+            <div class="box16", style="text-align:center;">
+                <div style="line-height:40px; border: 1px solid; text-align:center;">BlobGEN-Vid (Ours)</div>
+            </div>
+        </div>
+
+        <div id="">
+            <div class="box100", style="line-height:20px;text-align:center;">
+                <span><h3><i>A cake frosting changing from vanilla white to sunset orange.                </i></h3></span>
+            </div>
+        </div>
+        <div id="">
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/cogvideox_00005-00000.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/pika_00005-00000.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/luma_00005-00000.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/kling_00005-00000.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/gen-3_00005-00000.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/blobgen-vid_00005-00000.mp4" style="width:92%;" controls autoplay loop muted> </video>
+            </div>
+        </div>
+
+        <div id="">
+            <div class="box100", style="line-height:20px;text-align:center;">
+                <span><h3><i>A piece of fruit dropping from a tree into a basket underneath.                </i></h3></span>
+            </div>
+        </div>
+        <div id="">
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/cogvideox_00070-00000.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/pika_00070-00000.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/luma_00070-00000.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/kling_00070-00000.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/gen-3_00070-00000.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/blobgen-vid_00070-00000.mp4" style="width:92%;" controls autoplay loop muted> </video>
+            </div>
+        </div>
+
+        <div id="">
+            <div class="box100", style="line-height:20px;text-align:center;">
+                <span><h3><i>A leaf falls from a tree, landing on a floating lake surface.                </i></h3></span>
+            </div>
+        </div>
+        <div id="">
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/cogvideox_00091-00000.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/pika_00091-00000.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/luma_00091-00000.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/kling_00091-00000.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/gen-3_00091-00000.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/blobgen-vid_00091-00000.mp4" style="width:92%;" controls autoplay loop muted> </video>
+            </div>
+        </div>
+
+        <div id="">
+            <div class="box100", style="line-height:20px;text-align:center;">
+                <span><h3><i>Dew drops fall from a leaf to the ground.                </i></h3></span>
+            </div>
+        </div>
+        <div id="">
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/cogvideox_00092-00000.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/pika_00092-00000.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/luma_00092-00000.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/kling_00092-00000.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/gen-3_00092-00000.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/blobgen-vid_00092-00000.mp4" style="width:92%;" controls autoplay loop muted> </video>
+            </div>
+        </div>
+
+        <div id="">
+            <div class="box100", style="line-height:20px;text-align:center;">
+                <span><h3><i>A statue with sunrise changing to sunset around it.                </i></h3></span>
+            </div>
+        </div>
+        <div id="">
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/cogvideox_00112-00000.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/pika_00112-00000.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/luma_00112-00000.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/kling_00112-00000.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/gen-3_00112-00000.mp4" style="width:100%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box16", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/tc-bench/blobgen-vid_00112-00000.mp4" style="width:92%;" controls autoplay loop muted> </video>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="content">
+        <div id="">
+            <div class="box100", style="line-height:20px;text-align:center;">
+                <span style="font-size: 1.2em;text-align:center;">&nbsp;</span>
+            </div>
+        </div>
+        <div id="">
+            <div class="box100", style="line-height:20px;text-align:center;">
+                <span><h3 id="FigD"><strong>Figure D: Multi-view Image Generation, ScanNet++ <br /> 
+            </div>
+        </div>
+        <div id="">
+            <div id="">
+                <div class="box50", style="text-align:center;">
+                    <div style="line-height:40px; border: 1px solid; text-align:center;">BlobGEN-3D</div>
+                </div>
+                <div class="box50", style="text-align:center;">
+                    <div style="line-height:40px; border: 1px solid; text-align:center;"><b>BlobGEN-Vid (Ours)</b></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="">
+            <div class="box50", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/scannetpp/blobgen-3d_Scene1_000296.mp4" style="width:50%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box50", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/scannetpp/blobgen-vid_Scene1_000296.mp4" style="width:50%;" controls autoplay loop muted> </video>
+            </div>
+        </div>
+
+        <div id="">
+            <div class="box50", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/scannetpp/blobgen-3d_Scene1_000312.mp4" style="width:50%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box50", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/scannetpp/blobgen-vid_Scene1_000312.mp4" style="width:50%;" controls autoplay loop muted> </video>
+            </div>
+        </div>
+
+        <div id="">
+            <div class="box50", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/scannetpp/blobgen-3d_Scene1_000328.mp4" style="width:50%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box50", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/scannetpp/blobgen-vid_Scene1_000328.mp4" style="width:50%;" controls autoplay loop muted> </video>
+            </div>
+        </div>
+
+        <div id="">
+            <div class="box50", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/scannetpp/blobgen-3d_Scene2_000260.mp4" style="width:50%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box50", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/scannetpp/blobgen-vid_Scene2_000260.mp4" style="width:50%;" controls autoplay loop muted> </video>
+            </div>
+        </div>
+
+        <div id="">
+            <div class="box50", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/scannetpp/blobgen-3d_Scene2_000276.mp4" style="width:50%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box50", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/scannetpp/blobgen-vid_Scene2_000276.mp4" style="width:50%;" controls autoplay loop muted> </video>
+            </div>
+        </div>
+
+        <div id="">
+            <div class="box50", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/scannetpp/blobgen-3d_Scene2_000292.mp4" style="width:50%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box50", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/scannetpp/blobgen-vid_Scene2_000292.mp4" style="width:50%;" controls autoplay loop muted> </video>
+            </div>
+        </div>
+
+        <div id="">
+            <div class="box50", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/scannetpp/blobgen-3d_Scene3_000000.mp4" style="width:50%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box50", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/scannetpp/blobgen-vid_Scene3_000000.mp4" style="width:50%;" controls autoplay loop muted> </video>
+            </div>
+        </div>
+
+        <div id="">
+            <div class="box50", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/scannetpp/blobgen-3d_Scene3_000016.mp4" style="width:50%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box50", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/scannetpp/blobgen-vid_Scene3_000016.mp4" style="width:50%;" controls autoplay loop muted> </video>
+            </div>
+        </div>
+
+        <div id="">
+            <div class="box50", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/scannetpp/blobgen-3d_Scene3_000032.mp4" style="width:50%;" controls autoplay loop muted> </video>
+            </div>
+            <div class="box50", style="text-align:center;">
+
+                <video class="status3-pic" src="./videos/scannetpp/blobgen-vid_Scene3_000032.mp4" style="width:50%;" controls autoplay loop muted> </video>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+<script>
+    var videos = document.getElementsByClassName("clickplay");
+    for (var i = 0; i < videos.length; i++) {
+        videos[i].addEventListener("click", function () {
+            this.play();
+        });
+        videos[i].addEventListener("ended", function () {
+            this.pause();
+            this.currentTime = 0;
+        });
+    }
+</script>
+
+</html>
